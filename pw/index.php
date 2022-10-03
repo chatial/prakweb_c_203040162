@@ -1,6 +1,7 @@
 <?php 
 // Ahmad Reyhan Ronaldo
 // 203040162
+// Praktikum Web
 
 require 'function.php';
 $books = query("SELECT * FROM buku");

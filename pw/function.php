@@ -1,4 +1,8 @@
 <?php
+// Ahmad Reyhan Ronaldo
+// 203040162
+// Praktikum Web
+
 function koneksi()
 {
   return mysqli_connect('localhost', 'root', '', 'prakweb_c_203040162_pw');
