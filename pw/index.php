@@ -1,48 +1,52 @@
-<?php
-/*
-    Ahmad Reyhan Ronaldo
-    203040162
-    Jumat,13.00
-*/
-?>
-
 <?php 
-//Menghubungkan dengan file phplainnya
-require 'php/functions.php';
-//Melakukan query dari database
+
+require 'function.php';
 $books = query("SELECT * FROM buku");
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOVEL</title>
-    <link rel="stylesheet" href="img/css/bootstrap.min.css">
-    
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, intial-scale=1.0">
+	<title>Daftar Buku</title>
+	<link rel="stylesheet" href="style.css">
 </head>
+
+
 <body>
+	<h3>Daftar Buku</h3>
+	<a href="tambah.php">Tambah data buku</a>
+	<br><br>
 
-<div class="container mt-3">
-  <h1>Daftar Novel</h1>
-  <div class="card" style="width: 45rem">
-    <div class="card-body">
-      <div class="row">
-        <div class="col md-6">
-          <?php foreach( $books as $row ) : ?>
-            <p class="judul">
-              <a href="php/detail.php?id=<?= $row['id'] ?>">
-                <img src="img/<?= $row["img"]; ?>">
-              </a>
-            </p>  
-          <?php endforeach;  ?>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+	<table border="1" cellpadding="10" cellspacing="0">
+		<tr>
+			<th>No</th>
+			<th>Gambar</th>
+			<th>Judul</th>
+			<th>Pengarang</th>
+            <th>Penerbit</th>
+            <th>Terbit</th>
+			<th>Aksi</th>
+		</tr>
 
+		<?php $i = 1;
+		foreach($books as $book) : ?>
+		<tr>
+			<td><?= $i++; ?></td>
+			<td><img src="img/<?= $book['img']; ?>" width="60"></td>
+			<td><?= $book['judul']; ?></td>
+			<td><?= $book['pengarang']; ?></td>
+			<td><?= $book['penerbit']; ?></td>
+			<td><?= $book['terbit']; ?></td>
+			<td>
+			<a href="ubah.php?id=<?= $book['id']; ?>">ubah</a> | <a href="hapus.php?id=<?= $book['id']; ?>" onclick="return confirm('apakah anda yakin?');">hapus</a></li>
+			</td>
+		</tr>
+		<?php endforeach; ?>
+	</table>
 </body>
+
 </html>
