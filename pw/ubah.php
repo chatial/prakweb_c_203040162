@@ -1,4 +1,8 @@
 <?php
+// Ahmad Reyhan Ronaldo
+// 203040162
+// Praktikum Web
+
 require 'function.php';
 
 // jika tidak ada id di url
