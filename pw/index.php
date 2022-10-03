@@ -1,4 +1,6 @@
 <?php 
+// Ahmad Reyhan Ronaldo
+// 203040162
 
 require 'function.php';
 $books = query("SELECT * FROM buku");
